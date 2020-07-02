@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Edit Courses</title>      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <nav class="navbar navbar-dark bg-dark">
+      <ul class="nav">
+          <li class="nav-item">
+                <a class="nav-link" href="/SpringMVCOracleJBOSS/get/addCourses">Add Courses</a>
+          </li>
+          <li class="nav-item">
+                <a class="nav-link" href="/SpringMVCOracleJBOSS/get/viewAllCourses">View Courses</a>
+          </li>                       
+      </ul>
+      </nav>
+      <div class="container h-100">
+         <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">
+               <form th:action="@{/post/confirmFormForPut}" th:object="${course}" method="post"> 
+                  <h2>Edit the Courses</h2>
+                  <p class="description">Form to edit courses and View it</p>
+                  <!-- Input fields -->
+                  <table class="table table-sm table-dark">
+                     <thead>
+                        <tr>
+                           <th scope="col">Label</th>
+                           <th scope="col">Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Id</td>
+                           <td><input type="text" name="id" class="form-control" id="id" th:value="${course.getId()}"  readonly></td>
+                        </tr>
+                        <tr>
+                           <td>Course Name</td>
+                           <td><input type="text" name="courseName" class="form-control" id="id" th:value="${course.getCourseName()}"></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                           <td>Rating</td>
+                           <td><input type="text" name="rating" class="form-control" id="id" th:value="${course.getRating()}"></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                           <td>Price</td>
+                           <td><input type="text" name="price" class="form-control" id="id" th:value="${course.getPrice()}"></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                           <td>Trainer Name</td>
+                           <td><input type="text" name="trainerName" class="form-control" id="id" th:value="${course.getTrainerName()}"></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                           <td>Number of Days</td>
+                           <td><input type="text" name="numberOfDays" class="form-control" id="id" th:value="${course.getNumberOfDays()}"></td>
+                        </tr>
+                        <tr>
+                        <tr>
+                           <td scope="col" colspan="2" style="text-align:center"><button type="submit" class="btn btn-primary">Submit</button></td>
+                        </tr>
+                        <tr>
+                     </tbody>
+                  </table>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

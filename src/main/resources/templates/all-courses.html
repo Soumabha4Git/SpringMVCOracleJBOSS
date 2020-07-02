@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>All Courses Available</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/SpringMVCOracleJBOSS/get/addCourses">Add Courses</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/SpringMVCOracleJBOSS/get/viewAllCourses">View Courses</a>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<h2 style="text-align: center;" th:text="${headerValue}"></h2>
+			<form>
+				<div class="tablecontainer">
+					<table class="table table-bordered" align="center">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col" colspan="2" style="text-align:center">Action</th>
+								<th scope="col">Id</th>
+								<th scope="col">Course Name</th>
+								<th scope="col">Rating</th>
+								<th scope="col">Price</th>
+								<th scope="col">Trainer Name</th>
+								<th scope="col">Number of Days</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="course : ${allCourses}">
+								<form>
+									<td>
+										<button type="submit" class="btn btn-success btn-sm" formmethod="post" th:formaction="@{/post/editCourses}">Edit</button>
+									</td>
+									<td>
+										<button type="submit" class="btn btn-danger btn-sm" formmethod="post" th:formaction="@{/post/removeCourses}">Delete</button>
+									</td>
+									<th scope="row">
+										<input type="text" style="background-color: black; color: #fff; font-weight: bold;" name="id" id="id" th:value="${course.getId()}"  readonly />
+									</th>
+									<td>
+										<input type="text" style="font-weight: bold;" name="courseName" id="courseName" th:value="${course.getCourseName()}"  readonly />
+									</td>
+									<td>
+										<input type="text" style="font-weight: bold;" name="rating" id="rating" th:value="${course.getRating()}"  readonly />
+									</td>
+									<td>
+										<input type="text" style="font-weight: bold;" name="price" id="price" th:value="${course.getPrice()}"  readonly />
+									</td>
+									<td>
+										<input type="text" style="font-weight: bold;" name="trainerName" id="trainerName" th:value="${course.getTrainerName()}"  readonly />
+									</td>
+									<td>
+										<input type="text" style="font-weight: bold;" name="numberOfDays" id="numberOfDays" th:value="${course.getNumberOfDays()}"  readonly />
+									</td>
+								</form>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+		</main>
+	</body>
+</html>

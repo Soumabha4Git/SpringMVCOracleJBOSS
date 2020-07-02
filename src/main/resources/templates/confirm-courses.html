@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title th:text="${titleValue}"></title>      
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <nav class="navbar navbar-dark bg-dark">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/SpringMVCOracleJBOSS/get/addCourses">Add Courses</a>
+       </li>
+       <li class="nav-item">
+          <a class="nav-link" href="/SpringMVCOracleJBOSS/get/viewAllCourses">View Courses</a>
+       </li>               
+      </ul>
+      </nav>
+      <div class="container h-100">
+         <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-10 col-md-8 col-lg-6">              
+               <form th:action="@{${actionValue}}" th:object="${course}" method="post">               
+                  <h5 th:text="${headerValue}"></h5>
+                  <p class="description" th:text="${paragraphValue}"></p>
+                  <!-- Input fields -->
+                  <table class="table table-sm table-dark">
+                     <thead>
+                        <tr>
+                           <th scope="col">Label</th>
+                           <th scope="col">Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                      <tr>
+                         <td class="bg-primary"><label>Id</label></td>
+                         <td class="bg-success"><input type="text" name="id" id="id" th:value="${course.id}" readonly></td>
+                      </tr>
+                      <tr>
+                         <td class="bg-primary"><label>Course Name</label></td>
+                         <td class="bg-success"><input type="text" name="courseName" id="courseName" th:value="${course.courseName}" readonly></td>
+                      </tr>
+                      <tr>
+                      <tr>
+                         <td class="bg-primary"><label>Rating</label></td>
+                         <td class="bg-success"><input type="text" name="rating" id="rating" th:value="${course.rating}" readonly></td>
+                      </tr>
+                      <tr>
+                      <tr>
+                         <td class="bg-primary"><label>Price</label></td>
+                         <td class="bg-success"><input type="text" name="price" id="price" th:value="${course.price}" readonly></td>
+                      </tr>
+                      <tr>
+                      <tr>
+                         <td class="bg-primary"><label>Trainer Name</label></td>
+                         <td class="bg-success"><input type="text" name="trainerName" id="trainerName" th:value="${course.trainerName}" readonly></td>
+                      </tr>
+                      <tr>
+                      <tr>
+                         <td class="bg-primary"><label>Number of Days</label></td>
+                         <td class="bg-success"><input type="text" name="numberOfDays" id="numberOfDays" th:value="${course.numberOfDays}" readonly></td>
+                      </tr>
+                      <tr>
+                      <tr>
+                        <td scope="col" colspan="2" style="text-align:center"><button type="submit" class="btn btn-danger">Confirm</button></td>
+                      </tr>
+                      <tr>
+                   </tbody>
+                  </table>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
